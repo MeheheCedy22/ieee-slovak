@@ -33,7 +33,7 @@
 = Nadpis 1 úrovne
 #lorem(60)
 == Link na webstránku
-Link na #link("https://typst.app/")[Typst.app].
+Link na #link("https://typst.app/")[Typst.app] je alebo nie je podčiarknutý.
 == Citovanie
 Citácia zdroja @example.
 

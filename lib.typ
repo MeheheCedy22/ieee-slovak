@@ -64,11 +64,14 @@
   // CHANGE: 
   // Fig. -> Obr.
   // TABLE -> Tabuľka
+  // Section -> Sekcia
+  // 
   // When figure is shown, the string in caption to display is "Hardcoded"
   // meaning that you need to change the source of the template.
   // This supplement is used for references in the text.
   figure-reference-supplement: [Obr.],
   table-reference-supplement: [Tabuľka],
+  section-reference-supplement: [Sekcia],
 
   // CHANGE:
   // For acknowledgments (Poďakovanie), just use 1st level heading with the said string
@@ -84,7 +87,13 @@
   body
 ) = {
   // CHANGE:
-  if underline_links == 3 {show link: underline}
+    show link: it => {
+    if underline_links == 3 {
+      underline[#it]
+    } else {
+      it
+    }
+  }
 
   // Set document metadata.
   set document(title: title, author: authors.map(author => author.name))
@@ -306,7 +315,13 @@
   set par(spacing: 0.45em, justify: true, first-line-indent: 1em, leading: 0.45em)
 
   // CHANGE:
-if underline_links == 2 {show link: underline}
+  show link: it => {
+    if underline_links == 2 {
+      underline[#it]
+    } else {
+      it
+    }
+  }
 
   // Display abstract and index terms.
   if abstract != none [
@@ -314,31 +329,39 @@ if underline_links == 2 {show link: underline}
     // ORIGINALLY:
     // #h(1em) _Abstract_---#h(weak: true, 0pt)#abstract
     // CHANGE:
+    // #emph[text] == italic same as using _text_
     #if abstract-name-slovak == true [
       #h(1em) _Abstrakt_---#h(weak: true, 0pt)#abstract
     ] else if abstract-name-slovak == false [
       #h(1em) _Abstract_---#h(weak: true, 0pt)#abstract
     ] else [
-      #h(1em) _#abstract-name-slovak _---#h(weak: true, 0pt)#abstract
+      #h(1em) #emph[#abstract-name-slovak]---#h(weak: true, 0pt)#abstract
     ]
 
     #if index-terms != () [
       // ORIGINALLY:
       // #h(.3em)_Index Terms_---#h(weak: true, 0pt)#index-terms.join(", ")
       // CHANGE:
+      // #emph[text] == italic same as using _text_
       #if index-terms-name-slovak == true [
         #h(.3em)_Kľúčové slová_---#h(weak: true, 0pt)#index-terms.join(", ")
       ] else if index-terms-name-slovak == false [
         #h(.3em)_Index Terms_---#h(weak: true, 0pt)#index-terms.join(", ")
       ] else [
-        #h(.3em)_#index-terms-name-slovak _---#h(weak: true, 0pt)#index-terms.join(", ")
+        #h(.3em)#emph[#index-terms-name-slovak]---#h(weak: true, 0pt)#index-terms.join(", ")
       ]
     ]
     #v(2pt)
   ]
 
   // CHANGE:
-  if underline_links == 1 {show link: underline}
+    show link: it => {
+    if underline_links == 1 {
+      underline[#it]
+    } else {
+      it
+    }
+  }
 
   // Display the paper's contents.
   set par(leading: 0.5em)
