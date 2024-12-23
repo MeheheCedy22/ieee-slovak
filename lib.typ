@@ -200,7 +200,11 @@
   // set heading(numbering: "I.A.a)")
   // CHANGE:
   // set heading numbering from LaTeX IEEE template
-  set heading(numbering: "I.A.1)")
+  // ORIGINALLY:
+  // set heading(numbering: "I.A.1)")
+  // CHANGE:
+  set heading(numbering: "I.A.1)", supplement: section-reference-supplement)
+  
   show heading: it => {
     // Find out the final number of the heading counter.
     let levels = counter(heading).get()
