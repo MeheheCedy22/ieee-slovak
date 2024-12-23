@@ -26,6 +26,7 @@ You can use following arguments:
 - `bib-name`: The name of the bibliography section (default `"Literatúra"`).
 - `figure-reference-supplement`: How figures are referred to from within the text (default `Obr.`).
 - `table-reference-supplement`: How tables are referred to from within the text (default `Tabuľka`).
+- `section-reference-supplement`: How sections are referred to from within the text (default `Sekcia`).
 - `underline_links`: How links are displayed (default `2`).
     - `0` - underline no links
     - `1` - underline all links except for email of the authors and abstract / index terms
