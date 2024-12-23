@@ -4,6 +4,7 @@
 #show: ieee.with(
   title: [Názov článku na konferenciu vo formáte IEEE],
   abstract: [
+    Link na #link("https://typst.app/")[Typst.app].
     #lorem(60)
   ],
   authors: (
@@ -24,13 +25,23 @@
   ),
   index-terms: ("Kľúčové", "slová", "článku"),
   bibliography: bibliography("refs.bib"),
+  figure-reference-supplement: [Obr.],
+  table-reference-supplement: [Tabuľka],
+  underline_links: 2,
 )
 
 = Nadpis 1 úrovne
-#lorem(60) @example.
+#lorem(60)
+== Link na webstránku
+Link na #link("https://typst.app/")[Typst.app].
+== Citovanie
+Citácia zdroja @example.
 
 == Nadpis 2 úrovne <sec:heading2>
-#lorem(60) @fig:circle.
+#lorem(60)
+
+=== Referencia na obrázok
+@fig:circle zobrazuje kružnicu.
 
 #figure(
   placement: none,
@@ -38,7 +49,15 @@
   caption: [Kružnica]
 ) <fig:circle>
 
-#lorem(60) @sec:heading2.
+#lorem(60)
+
+== Referencia na sekciu
+@sec:heading2 nam hovorí o nadpise druhej úrovne.
+
+== Referencia na rovnicu
+Nižšie vidíme rovnicu @eq:com, ktorá nám hovorí o komutatívnosti.
+
+$ a #sym.times b = b #sym.times a $ <eq:com>
 
 === Nadpis 3 úrovne
 #lorem(30)
@@ -71,11 +90,13 @@
   )
 ) <tab:name_ages>
 
-#lorem(60) @tab:name_ages.
+#lorem(60)
+
+@tab:name_ages zobrazuje mená a vek ľudí.
 
 = Záver
 #lorem(60)
 
 = Poďakovanie
 #lorem(30)
-
+  
